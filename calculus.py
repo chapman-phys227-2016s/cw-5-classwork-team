@@ -9,6 +9,7 @@ and trapezoidal integration function
 
 """
 
+
 import numpy as np
 import math
 
@@ -43,4 +44,12 @@ def diff2(f, a, b, n):
     matrix[-1][-1] = 1 / h
     matrix[-1][-2] = -1 / h
     print matrix
-diff2(sin, 1, 10, 100)
+
+
+def discrete_func(f, a, b, n):
+    x = np.linspace(a, b, n+1)
+    g = np.vectorize(f)
+    y = g(x)
+    return x, y
+
+
