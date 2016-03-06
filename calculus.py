@@ -52,4 +52,21 @@ def discrete_func(f, a, b, n):
     y = g(x)
     return x, y
 
+def trapezoidal_matrix(f, a, b, n):
+    """Trapezoidal integration via matrix multiplication."""
+    h = (b-a)/float(n)
+    indexer = np.linspace(a, b, n)
+    values = f(indexer)
+    matrixer = np.zeros(n)
+    matrixer.fill(h)
+    matrixer[0] = h/2.0
+    matrixer[n - 1] = h/2.0
+    I = np.dot(values, matrixer)
+    return I
 
+def test_trap_matrix():
+    """Trapezoidal integration via matrix multiplication verified by integrating
+    the sine function on the integral 0 to pi over 2."""
+    apt = np.abs(trapezoidal_matrix(np.sin, 0, np.pi/2.0, 10000) - 1) < 1e-3
+    msg = 'That aint how the sine do.'
+    assert apt, msg
