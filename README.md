@@ -1,8 +1,8 @@
 # PHYS227 CW 5
 
-**Author(s):** _\<your name(s)\>_
+**Author(s):** Michael Seaman, Austin Ayers, Taylor Patti, Andrew Malfavon
 
-[![Build Status](https://travis-ci.org/chapman-phys227-2016s/cw-5-YOURTEAM.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/cw-5-YOURTEAM)
+[![Build Status](https://travis-ci.org/chapman-phys227-2016s/cw-5-classwork-team.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/cw-5-classwork-team)
 
 **Due date:** 2016/03/08
 
@@ -23,7 +23,7 @@ To cleanly present your work, create a Jupyter notebook ```cw5.ipynb``` that imp
 
 ## Assessment
 
-_\<Analyze what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have.\>_
+Good stuff. Hahaha, trap rule.
 
 ## Honor Pledge
 
@@ -34,4 +34,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-_\<your name(s)\>_
+Errbody
