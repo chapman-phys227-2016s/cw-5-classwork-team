@@ -28,28 +28,30 @@ def diff(f, a, b, n):
 def sin(x):
     return math.sin(x)
 
-def diff2(f, a, b, n):
-    #x, y = discrete_func(f, a, b, n)
-    matrix = []
-    h = ( b - a ) / float(n)
-    count = -1
-    for i in range(n):
-        for j in range(n):
-            matrix[i].append(0)
-        if(count >= 0 and count < n - 1):
-            matrix[i][count] = 1 / (2 * h)
-            matrix[i][count++ + 2] = -1 / (2 * h)
-    matrix[0][0] = -1 / h
-    matrix[0][1] = 1 / h
-    matrix[-1][-1] = 1 / h
-    matrix[-1][-2] = -1 / h
-    print matrix
-
-
 def discrete_func(f, a, b, n):
     x = np.linspace(a, b, n+1)
     g = np.vectorize(f)
     y = g(x)
     return x, y
+
+def diff2(f, a, b, n):
+    x, y = discrete_func(f, a, b, n)
+    matrix = np.zeros((n,n))
+    h = ( b - a ) / float(n)
+    count = -1
+    for i in range(n):
+        if(count >= 0 and count < n-2):
+            matrix[i][count] = 1 / (2 * h)
+            matrix[i][count + 2] = -1 / (2 * h)
+        count += 1
+    matrix[0][0] = -1 / h
+    matrix[0][1] = 1 / h
+    matrix[-1][-1] = 1 / h
+    matrix[-1][-2] = -1 / h
+    print np.dot(matrix, matrix)
+
+
+
+
 
 
