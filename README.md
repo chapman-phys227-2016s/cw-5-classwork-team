@@ -1,6 +1,6 @@
 # PHYS227 CW 5
 
-**Author(s):** Michael Seaman, Austin Ayers, Taylor Patti, Andrew Malfavon
+**Author(s):** Michael Seaman, Austin Ayers, Taylor Patti, Andrew Malfavon, Chinmai Raman
 
 [![Build Status](https://travis-ci.org/chapman-phys227-2016s/cw-5-classwork-team.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/cw-5-classwork-team)
 
