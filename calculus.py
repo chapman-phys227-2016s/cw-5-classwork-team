@@ -14,6 +14,7 @@ import numpy as np
 import math
 
 def diff(f, a, b, n):
+    """An iterative version of a forward differentiation method."""
     x = np.linspace(a, b, n+1)
     y = np.zeros(len(x))
     z = np.zeros(len(x))
@@ -25,17 +26,16 @@ def diff(f, a, b, n):
     z[n] = (y[n] - y[n-1])/h
     return y, z
 
-def sin(x):
-    return math.sin(x)
-
 def discrete_func(f, a, b, n):
+    """Generates a vectorized linspace and applies a function to a similar data structure."""
     x = np.linspace(a, b, n+1)
     g = np.vectorize(f)
     y = g(x)
     return x, y
 
 def diff2(f, a, b, n):
-    x, y = discrete_func(f, a, b, n)
+    """A matrix version of a forward differentiation method."""
+    x, y = discrete_func(f, a, b, n - 1)
     matrix = np.zeros((n,n))
     h = ( b - a ) / float(n)
     count = -1
@@ -48,9 +48,17 @@ def diff2(f, a, b, n):
     matrix[0][1] = 1 / h
     matrix[-1][-1] = 1 / h
     matrix[-1][-2] = -1 / h
-    print np.dot(matrix, matrix)
+    return np.dot(matrix, y)
 
+def test_diff():
+    apt = math.fabs(diff(math.sin, 0, 1, 100000)[1][-1] - math.cos(1)) < 1e-3
+    msg = 'That aint how the sine function do.'
+    assert apt, msg
 
+def test_diff2():
+    apt = math.fabs(diff(math.sin, 0, 1, 100000)[1][-1] - math.cos(1)) < 1e-3
+    msg = 'That aint how the sine function do.'
+    assert apt, msg
 
 
 
